@@ -1,0 +1,1 @@
+﻿Update-DscConfiguration -Wait -Verbose
