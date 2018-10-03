@@ -6,7 +6,7 @@ This repository contains the files needed to follow along during the Workshop **
 
 To follow along you need 2 VMs on either local Hyper-V or a cloud of your choosing. The VMs need to be able to communicate with each other and with the internet.
 
-VM 1 will be the DSC Pull Server and needs to be installed with Windows Server 2019 (technical preview if RTM is not yet available). It will also need an installation of SQL Server 2017 (at least [Express edition](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)) which need to be configured in **mixed authentication mode** and it needs to **accept TCP connections**. 
+VM 1 will be the DSC Pull Server and needs to be installed with Windows Server 2019. It will also need an installation of SQL Server 2017 (at least [Express edition](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)) which need to be configured in **mixed authentication mode** and it needs to **accept TCP connections**.
 
 >A script to automate the SQL installation is provided below.
 
@@ -14,7 +14,7 @@ VM 2 will be an LCM client and needs at least Windows Server 2012R2 with WMF5.1 
 
 ### Hyper-V
 
-If you are hosting the VMs locally on Hyper-V, download the technical preview vhdx by signing up [here](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver). If you are using another Hypervisor or virtualization system, download the ISO instead.
+If you are hosting the VMs locally on Hyper-V, download the evaluation vhd [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019) and create Generation 1 VMs!. If you are using another Hypervisor or virtualization system (or want to use Generation 2 Hyper-V VMs), download the ISO instead.
 
 Create 2 VMs, each with a copy or fresh installation of Windows Server 2019.
 
