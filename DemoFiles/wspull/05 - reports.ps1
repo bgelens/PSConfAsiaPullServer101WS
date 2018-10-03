@@ -1,5 +1,5 @@
 ﻿# first show reporting through api
-$agentId = '2DB19967-BB6A-11E8-A340-00155D00692E'
+$agentId = '2DB19967-BB6A-11E8-A340-00155D00692E' #TODO: UPDATE :|
 $uri = "http://localhost:8080/PSDSCPullServer.svc/Nodes(AgentId = '$agentId')"
 
 $irmArgs = @{
@@ -20,6 +20,7 @@ $reports.value
 # now via SQL
 # install dscpullserveradmin
 Install-Module -Name DSCPullServerAdmin -Scope CurrentUser -Force
+Get-Command -Module DSCPullServerAdmin
 
 # connect with db and enumerate
 New-DSCPullServerAdminConnection -SQLServer localhost -Credential sa -Database DSC

@@ -14,7 +14,7 @@ MySuperServer -OutputPath 'C:\pullserver\Configuration'
 New-DscChecksum -Path 'C:\pullserver\Configuration\MySuperServer.mof' -Force
 
 # overwrite configuration name server side
-Get-DSCPullServerAdminRegistration | Set-DSCPullServerAdminRegistration -ConfigurationNames 'MySuperServer'
+Get-DSCPullServerAdminRegistration | Set-DSCPullServerAdminRegistration -ConfigurationNames 'MySuperServer' -WhatIf
 Get-DSCPullServerAdminRegistration
 
 # pull new config

@@ -26,10 +26,8 @@ configuration PullServerSQL {
         CertificateThumbPrint        = 'AllowUnencryptedTraffic'
         ModulePath                   = "c:\pullserver\Modules"
         ConfigurationPath            = "c:\pullserver\Configuration"
-        DatabasePath                 = "c:\pullserver" 
         State                        = 'Started'
         RegistrationKeyPath          = "c:\pullserver"
-        AcceptSelfSignedCertificates = $true
         UseSecurityBestPractices     = $false
         SqlProvider                  = $true
         SqlConnectionString          = 'Provider=SQLOLEDB.1;Server=localhost;Database=DSC;User ID=sa;Password=Welkom01;Initial Catalog=master;'
