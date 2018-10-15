@@ -1,6 +1,22 @@
 param (
-    [switch] $CopyDemoOnly
+    [switch] $CopyDemoOnly,
+
+    [string] $UserName,
+
+    [string] $Password
 )
+
+# disable servermanager
+$null = Get-ScheduledTask -TaskName servermanager | Disable-ScheduledTask
+
+# setup vs code and install ps extension
+Enable-PSRemoting -Force -SkipNetworkProfileCheck
+$userCred = [pscredential]::new(".\$UserName", (ConvertTo-SecureString -String $Password -AsPlainText -Force))
+Invoke-Command -Credential $userCred -ScriptBlock {
+    Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?Linkid=852157 -OutFile $env:TEMP\vscode-stable.exe
+    Start-Process -Wait $env:TEMP\vscode-stable.exe -ArgumentList /silent, /mergetasks=!runcode
+    Start-Process -Wait 'C:\Program Files\Microsoft VS Code\bin\code.cmd' -ArgumentList '--install-extension "ms-vscode.PowerShell"'
+}
 
 # download demo files
 Invoke-WebRequest -UseBasicParsing -Uri 'https://github.com/bgelens/PSConfAsiaPullServer101WS/archive/master.zip' -OutFile $env:TEMP\master.zip
