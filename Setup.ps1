@@ -1,9 +1,5 @@
 param (
-    [switch] $CopyDemoOnly,
-
-    [string] $UserName,
-
-    [string] $Password
+    [switch] $CopyDemoOnly
 )
 
 # disable servermanager
