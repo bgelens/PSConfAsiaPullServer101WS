@@ -23,7 +23,8 @@ Install-Module -Name DSCPullServerAdmin -Scope CurrentUser -Force
 Get-Command -Module DSCPullServerAdmin
 
 # connect with db and enumerate
-New-DSCPullServerAdminConnection -SQLServer localhost -Credential sa -Database DSC
+$sqlCred = [pscredential]::new('sa', (ConvertTo-SecureString 'Welkom01' -AsPlainText -Force))
+New-DSCPullServerAdminConnection -SQLServer localhost -Credential $sqlCred -Database DSC
 
 # get node object from db
 Get-DSCPullServerAdminRegistration
